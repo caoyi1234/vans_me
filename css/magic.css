@@ -1,0 +1,371 @@
+#hidebg {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-color: #000;
+    width: 100%;
+    /* filter: alpha(opacity=60); */
+    opacity: 0.6;
+    display: none;
+    z-Index: 11;
+}
+iframe{
+    display: none;
+    z-Index: 12;
+    position: fixed;
+    left:300px;
+    top:70px;
+    width:664px;
+    height:375px;
+    background-color: red;
+    padding:29px;
+    background: url(../img2/video_bg.jpg) no-repeat;
+}
+/* section */
+section{
+    width:100%;
+    height:800px;
+    display: flex;
+    justify-content: space-around;
+    background-image: url(../img/bg_red.jpg);
+    padding-top:60px;
+    padding-bottom:60px;
+}
+/* 左边 */
+.s-left{
+    width:500px;
+    overflow: hidden;
+    margin-left: 100px;
+}
+.s-left img{
+    float:left;
+}
+.s-left-all{
+    position: relative;
+}
+.s-left-all .swiper-button-next{
+    position: absolute;
+    top: 50%;
+    width: 27px;
+    height: 44px;
+    margin-top: -22px;
+    z-index: 10;
+    cursor: pointer;
+    background-size: 27px 44px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.s-left-all .swiper-button-prev{
+    position: absolute;
+    top: 50%;
+    width: 27px;
+    height: 44px;
+    margin-top: -22px;
+    z-index: 10;
+    cursor: pointer;
+    background-size: 27px 44px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.s-left swiper-container2 img{
+    width:100%;
+}
+/* .s-left .swiper-slide{
+     position: relative; 
+} */
+.s-left .swiper-slide .head1{
+    position: absolute;
+    left:155px;
+    top:5px;
+    z-index:999;
+}
+.s-left .swiper-slide .short1{
+    position: absolute;
+    left:-85px;
+    top:-30px;
+    z-index:3;
+}
+.s-left .swiper-slide .leg1{
+    position: absolute;
+    left:-85px;
+    top:0px;
+}
+.s-left .swiper-slide .shoes1{
+    position: absolute;
+    left:-85px;
+    top:-7px;
+    z-index:8;
+}
+/* 右边 */
+.ctop12{
+    width:450px;
+    height:650px;
+}
+.ctop12 img{
+    width:500px;
+    height:650px;
+}
+.ctop12 input{
+    width:170px;
+    margin-top: 30px;
+    height:40px;
+    border:3px solid black;
+    box-sizing: border-box;
+    outline: none;
+    background: #f1d94b;
+    font-size: 20px;
+    transition-duration:0.2s;
+}
+#match{
+    margin-left: 60px;
+    margin-right: 30px;
+}
+.ctop12 input:hover{
+    box-shadow:3px 3px #1c1c1c;
+    transform: translate(-3px,-3px);
+}
+#dapei{
+    margin-left: 55px;
+    margin-top: 20px;
+}
+/* banner */
+.banner img{
+    width:100%;
+}
+.bannerFirst{
+    width:100%;
+    background-image: url(../img/bg_red.jpg);
+    position: relative;
+    overflow: hidden;
+}
+.bannerSix{
+    width:100%;
+    background-image: url(../img/bg_yellow.jpg);
+    position: relative;
+    overflow: hidden;
+}
+.swiper-pagination{
+    left: 672px;
+    top: 950px;
+    width:52px;
+}
+/* 当不能滑动时将左右箭头的样式隐藏 */
+.banner .swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
+    display: none;
+    cursor: auto;
+    pointer-events: none;
+}
+.bannerFirst img{
+    width:100%;
+}
+.bannerTwo{
+    width:100%;
+    overflow: hidden;
+}
+.bannerTwo img{
+    width:100%;
+}
+.swiper-pagination-bullet{
+    background:white;
+}
+.bannerThree img{
+    width:100%;
+}
+.bannerFour{
+    width:100%;
+    overflow: hidden;
+}
+.bannerFour img{
+    width:100%;
+}
+.magicLast{
+    width:100%;
+    height:370px;
+}
+.magicLast img{
+    width:100%;
+    height:370px;
+    float: left;
+}
+.bg_lun{
+    position: relative;
+}
+.point{
+    position: absolute;
+    /* border:1px solid white; */
+    cursor: pointer;
+}
+#cloth1-1-1{
+    width:264px;
+    height:328px;
+    top:318px;
+    left:160px;
+}
+#cloth1-1-2{
+    width:375px;
+    height:370px;
+    top:531px;
+    left:733px;
+}
+#cloth1-1-3{
+    width:199px;
+    height:94px;
+    top:530px;
+    left:396px;
+}
+#cloth1-1-4{
+    width:190px;
+    height:95px;
+    top:715px;
+    left:1052px;
+}
+#cloth1-2-1{
+    width:190px;
+    height:95px;
+    top:692px;
+    left:1127px;
+}
+#cloth1-2-2{
+    width:190px;
+    height:95px;
+    top:441px;
+    left:713px;
+}
+#cloth1-2-3{
+    width:190px;
+    height:95px;
+    top:285px;
+    left:588px;
+}
+#cloth1-2-4{
+    width:190px;
+    height:95px;
+    top:744px;
+    left:406px;
+}
+#cloth1-2-5{
+    width:272px;
+    height:362px;
+    top:193px;
+    left:863px;
+}
+#cloth1-2-6{
+    width:375px;
+    height:370px;
+    top:100px;
+    left:277px;
+}
+#cloth1-2-7{
+    width:322px;
+    height:155px;
+    top:746px;
+    left:832px;
+}
+#cloth1-2-8{
+    width:322px;
+    height:337px;
+    top:585px;
+    left:132px;
+}
+#cloth1-3-1{
+    width:291px;
+    height:337px;
+    top:296px;
+    left:441px;
+}
+#cloth1-3-2{
+    width:196px;
+    height:94px;
+    top:454px;
+    left:253px;
+}
+#cloth1-3-3{
+    width:270px;
+    height:330px;
+    top:271px;
+    left:1022px;
+}
+#cloth1-3-4{
+    width:190px;
+    height:90px;
+    top:491px;
+    left:869px;
+}
+#cloth1-3-5{
+    width:237px;
+    height:211px;
+    top:660px;
+    left:33px;
+}
+#cloth1-3-6{
+    width:190px;
+    height:90px;
+    top:695px;
+    left:264px;
+}
+#cloth1-4-4{
+    width:311px;
+    height:438px;
+    top:547px;
+    left:242px;
+}
+#cloth1-4-1{
+    width:206px;
+    height:274px;
+    top:340px;
+    left:615px;
+}
+#cloth1-4-2{
+    width:190px;
+    height:90px;
+    top:423px;
+    left:362px;
+}
+#cloth1-4-3{
+    width:190px;
+    height:90px;
+    top:260px;
+    left:803px;
+}
+#cloth1-4-5{
+    width:366px;
+    height:237px;
+    top:235px;
+    left:922px;
+}
+#cloth2-1-1{
+    width:373px;
+    height:361px;
+    top:456px;
+    left:844px;
+}
+#cloth2-1-2{
+    width:190px;
+    height:93px;
+    top:728px;
+    left:718px;
+}
+#cloth3-2-1{
+    width:360px;
+    height:213px;
+    top:266px;
+    left:193px;
+}
+#cloth3-2-2{
+    width:316px;
+    height:393px;
+    top:228px;
+    left:838px;
+}
+#cloth3-2-3{
+    width:190px;
+    height:93px;
+    top:249px;
+    left:56px;
+}
+#cloth3-2-4{
+    width:190px;
+    height:93px;
+    top:497px;
+    left:688px;
+}

@@ -1,0 +1,149 @@
+
+/* section */
+section{
+    width:100%;
+    height:690px;
+    background-color:#f1f2ed;
+    padding-top: 60px;
+    position: relative;
+}
+.box{
+    width:540px;
+    height:567px;
+    border:1px solid #c9caca;
+    background-color: white;
+    margin:0 auto;
+    padding-left: 60px;
+    padding-top: 46px;
+}
+.box_top{
+    display: flex;
+}
+.box_top a{ 
+    font-weight: 700;
+    font-size: 24px;
+    color:#666666;
+    line-height: 44px;
+    margin-right: 40px;
+    text-decoration: none;
+}
+#txtId{
+    width:480px;
+    height:72px;
+    margin-top: 8px;
+    text-indent: 22px;
+}
+#txtSpan{
+    position: absolute;
+    left:457px;
+    top:210px;
+    color:#c9192e;
+    font-weight: 100;
+    font-size:12px;
+    display:none;
+}
+#passwordId{
+    width:480px;
+    height:72px;
+    text-indent: 22px;
+    margin-top: 20px;
+}
+#passwordSpan{
+    position: absolute;
+    left:457px;
+    top:307px;
+    color:#c9192e;
+    font-weight: 100;
+    font-size:12px;
+    display:none;
+}
+.passwordId{
+    width:480px;
+    height:72px;
+    text-indent: 22px;
+    margin-top: 20px;
+}
+#passwordSpan2{
+    position: absolute;
+    left:457px;
+    top:405px;
+    color:#c9192e;
+    font-weight: 100;
+    font-size:12px;
+    display:none;
+}
+#testId{
+    width:292px;
+    margin-top: 20px;
+    height:72px;
+}
+#testSpan{
+    position: absolute;
+    left:457px;
+    top:502px;
+    color:#c9192e;
+    font-weight: 100;
+    font-size:12px;
+    display:none;
+}
+#makeId{
+    width:175px;
+    height:50px;
+    margin-top: 32px;
+    margin-left: 10px;
+    background-color: black;
+    font-weight: 700;
+    font-size: 16px;
+    border:none;
+    color:white;
+    outline:none;
+}
+#loginBtn{
+    width:486px;
+    height:50px;
+    margin-top: 20px;
+    font-size: 16px;
+    background-color: #c9192e;
+    border:none;
+    color:white;
+    outline:none;
+    float: left;
+}
+#loginBtn:hover{
+    background-color:black;
+}
+/*也可直接用id名。 */
+.box input[type=checkbox]:after {
+    width: 15px;
+    height: 15px;
+    content: " ";
+    background-color: #fff;
+    color: #c9192e;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 900;
+    display: inline-block;
+    border:1px solid #d2d2d2;
+    text-align: center;
+    margin-top: -1px;
+  }
+.box input[type=checkbox]:checked:after {
+    content: "✔";
+}
+.box span{
+    color:#d2d2d2;
+    font-weight: 700;
+}
+.box span a{
+    color:#d2d2d2;
+    text-decoration: underline;
+}
+#checkSpan{
+    position: absolute;
+    left:433px;
+    top:637px;
+    color:#c9192e;
+    font-weight: 100;
+    font-size:12px;
+    display:none;
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>https://vans.com.cn/passport-login</title>
+</head>
+    <link rel="stylesheet" href="../css/iconfont.css">
+    <link rel="stylesheet" href="../css/demo.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/all.css">
+    <!-- <link rel="stylesheet" href="../css/bootstrap.min.css"> -->
+    <style>
+    @font-face {
+      font-family: 'iconfont';
+      src: url('iconfont.eot');
+      src: url('iconfont.eot?#iefix') format('embedded-opentype'),
+          url('iconfont.woff2') format('woff2'),
+          url('iconfont.woff') format('woff'),
+          url('iconfont.ttf') format('truetype'),
+          url('iconfont.svg#iconfont') format('svg');
+    }
+    .iconfont {
+      font-family: "iconfont" !important;
+      font-size: 16px;
+      font-style: normal;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+</style>
+<body>
+<div id="header"></div>
+<section>
+    <div class="box">
+        <div class="box_top">
+            <a href="">用户名登录</a>
+            <a href="">手机快捷登录</a>
+        </div>
+        <div class="form">
+            <input type="text" id="txtId" placeholder="手机号/用户名"><br>
+            <span id="txtSpan"></span>
+            <input type="password" id="passwordId" placeholder="登录密码"><br>
+            <span id="passwordSpan"></span>
+            <a href="">忘记密码？</a>
+            <input type="submit" value="立即登录" id="loginBtn">
+            <input type="button" value="注册" id="zhuceBtn" onClick="location.href='zhuce.html'">
+        </div>
+        <div class="another">
+            <h1>使用其他登录方式：</h1>
+            <a href=""><img src="../img/another.jpg"></a>
+        </div>
+    </div>
+</section>
+<div id="footer"></div>
+</body>
+</html>
+<script src="../js/iconfont.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/cookieTools.js"></script>
+<script src="../js/all.js"></script>
+<script>
+$("#footer").load("footer.html");
+$("#header").load("header.html");
+let cookie=getCookie("userId");
+if(cookie){
+  $("#c123").html("欢迎您："+`<span>`+cookie+`</span>`);
+  $("#c123").next("a").css("display","none");
+}
+
+//正则验证格式是否正确；
+window.onload=function(){
+$("#txtId").blur(function(){
+  let reg = /^1[0-9]{10}$/;
+  if(reg.test(this.value)){
+    $("#txtSpan").html("合适");
+  }else{
+    $("#txtSpan").html("格式不正确");
+  }
+  $("#txtSpan").css({
+    "display":"block",
+  })
+})
+$("#passwordId").blur(function(){
+  let reg = /^\w{8,20}$/;
+  if(reg.test(this.value)){
+    $("#passwordSpan").html("合适");
+  }else{
+    $("#passwordSpan").html("格式不正确");
+  }
+  $("#passwordSpan").css({
+    "display":"block",
+  })
+})
+//点击注册后判断
+$("#loginBtn").click(function(){
+    if($("#txtId").val().length===0){
+      $("#txtSpan").html("手机号不能为空");
+      $("#txtSpan").css({
+        "display":"block",
+      })
+      return false;
+    }else if($("#txtId").val().length!==0){
+      $("#txtSpan").css({
+        "display":"none",
+      })
+    } 
+    if($("#passwordId").val().length===0){
+      $("#passwordSpan").html("密码不能为空");
+      $("#passwordSpan").css({
+        "display":"block",
+      })
+      return false;
+    }else if($("#passwordId").val().length!==0){
+      $("#passwordSpan").css({
+        "display":"none",
+      })
+      $.post("../php/login.php",{userId:$("#txtId").val(),userPass:$("#passwordId").val()},function(data){
+        if(data==1){
+          alert("登录成功，跳转至首页");
+          saveCookie("userId",$("#txtId").val(),7);
+          // console.log(getCookie("userId"));
+          location.href="index.html";
+        }else if(data==0){
+          alert("手机号或者密码输入错误");
+        }
+      })
+    }
+});
+  
+}
+</script>

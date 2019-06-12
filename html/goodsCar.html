@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>goodsCar</title>
+</head>
+<link rel="stylesheet" href="../css/iconfont.css">
+<link rel="stylesheet" href="../css/demo.css">
+<link rel="stylesheet" href="../css/goodsCar.css">
+<link rel="stylesheet" href="../css/all.css">
+<style>
+  @font-face {
+    font-family: 'iconfont';
+    src: url('iconfont.eot');
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'),
+      url('iconfont.woff2') format('woff2'),
+      url('iconfont.woff') format('woff'),
+      url('iconfont.ttf') format('truetype'),
+      url('iconfont.svg#iconfont') format('svg');
+  }
+
+  .iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+</style>
+
+<body>
+  <!-- header -->
+  <div id="header"></div>
+  <!-- section -->
+  <section>
+    <div class="top">
+      <img src="../img/shopCar1.jpg">
+    </div>
+    <ul class="center">
+      <li class="one">
+        <input type="checkbox" class="check" style="margin-top: 2px">&nbsp;&nbsp;<span>全选</span>
+        <h1 class="a1">已选择的商品</h1>
+        <h1 class="a2">数量</h1>
+        <h1 class="a2">原价</h1>
+        <h1 class="a2">优惠</h1>
+        <h1 class="a2">总计</h1>
+        <h1 class="a3">操作</h1>
+      </li>
+    </ul>
+  </section>
+
+  <!-- footer -->
+  <div id="footer"></div>
+</body>
+
+</html>
+<script src="../js/iconfont.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/cookieTools.js"></script>
+<script src="../js/all.js"></script>
+<script>
+  $("#footer").load("footer.html");
+  $("#header").load("header.html");
+  
+  let userId = getCookie("userId");
+  $.get("../php/getGoodsCar.php", { vipName: userId },
+    function (data){
+      var date = JSON.parse(data);
+      // console.log(date);
+      // console.log(date.length);
+      // console.log(date[1]);
+      // console.log(date[0]);
+      for (let i = 0; i <= date.length; i++) {
+        createLi(date[i]);
+      }
+    }
+  );
+  $.get("../php/getGoodsCount.php", { vipName: userId },
+    function (data){
+      console.log(data);//打印数据
+      let arr1=[];
+      arr1.push(data.split(","))//将数据放进数组
+      let arr2=arr1[0];
+      console.log(arr2);
+      let length=arr2.length;
+      arr2.splice(length-1,1);
+      let arr3=[];
+      let arr4=[];
+      let arr5=[];
+      arr3.push(arr2[0].split(":"))
+      arr4.push(arr2[1].split(":"))
+      arr5.push(arr2[2].split(":"))
+    }
+  );
+  
+  //动态创建li,即购物车列表；
+  function createLi(str) {
+    let li = $(`<li class="two">
+          <div class="twoTop">
+            <input type="checkbox" class="check">&nbsp;&nbsp;<span>选择</span>
+          </div>
+          <div class="IMG">
+            <img src="${str.goodsImg}">
+          </div>
+          <div class="goods">
+            <p>${str.goodsName}</p>
+            <h1>白色<span id="size">36</span></h1>
+            <a href="">编辑</a>
+          </div>
+          <div class="num">
+            <span id="goodSub" style="cursor:pointer" onselectstart="return false">-</span><a href="" id="goodShu">1</a><span id="goodAdd"  style="cursor:pointer" onselectstart="return false">+</span>
+          </div>
+          <div class="twoBottom">
+            <h1 id="price">￥<span>${str.goodsPrice}</span></h1>
+            <h1 id="much">￥<span>0.00</span></h1>
+            <h1 id="allPrice">￥<span>260.00</span></h1>
+            <span id="del" onclick="del(this)">移除</span>
+          </div>
+        </li>`)
+    let ul = $(".center");
+    ul.append(li);
+  }
+  // 删除按钮
+  function del(str) {
+    let a=confirm("是否确定删除商品");
+    if(a==true){
+      str.parentNode.parentNode.remove();
+    }
+  }
+</script>
+<script>
+// 点击加减号改变数量
+$("#goodAdd").click(function(){
+  let str=$("#goodShu").html();
+    str++;
+})
+$("#goodSub").click(function(){
+  let str=$("#goodShu").html();
+  if(str>=1){
+    str--;
+  }
+})
+</script>

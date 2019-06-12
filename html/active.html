@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>VANS X RALPH STEADMAN 联名系列</title>
+</head>
+    <link rel="stylesheet" href="../css/iconfont.css">
+    <link rel="stylesheet" href="../css/demo.css">
+    <link rel="stylesheet" href="../css/active.css">
+    <link rel="stylesheet" href="../css/all.css">
+    <link rel="stylesheet" href="../css/swiper.min.css">
+    <!-- <link rel="stylesheet" href="../css/bootstrap.min.css"> -->
+    <style>
+    @font-face {
+      font-family: 'iconfont';
+      src: url('iconfont.eot');
+      src: url('iconfont.eot?#iefix') format('embedded-opentype'),
+          url('iconfont.woff2') format('woff2'),
+          url('iconfont.woff') format('woff'),
+          url('iconfont.ttf') format('truetype'),
+          url('iconfont.svg#iconfont') format('svg');
+    }
+    .iconfont {
+      font-family: "iconfont" !important;
+      font-size: 16px;
+      font-style: normal;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+</style>
+<body>
+<!-- header -->
+<div id="header"></div>
+<!-- section -->
+<section>
+    <div class="banner">
+        <div class="font">
+            <img src="../img/font1.png" class="font1">
+            <img src="../img/font2.png" class="font2">
+            <img src="../img/font3.png" class="font3">
+            <img src="../img/arrows.png" class="font4">
+        </div>
+    </div>
+    <div class="banner2">
+        <ul class="imgUl swiper-container" style="width:960px">
+            <div class="swiper-wrapper">
+                <li class="imgLi swiper-slide"><a href="goodsinfo.html"><img class="mask_img" src="../img/fish.png"></a></li>
+                <li class="imgLi swiper-slide"><a href="goodsinfo.html"><img class="mask_img" src="../img/fly.png"></a></li>
+                <li class="imgLi swiper-slide"><a href="goodsinfo.html"><img class="mask_img" src="../img/leopard.png"></a></li>
+                <li class="imgLi swiper-slide"><a href="goodsinfo.html"><img class="mask_img" src="../img/frog.png"></a></li>
+                <li class="imgLi swiper-slide"><a href="goodsinfo.html"><img class="mask_img" src="../img/bigFish.png"></a></li>
+                <li class="imgLi swiper-slide"><a href="goodsinfo.html"><img class="mask_img" src="../img/lion.png"></a></li>
+                <li class="imgLi swiper-slide"><a href="goodsinfo.html"><img class="mask_img" src="../img/bee.png"></a></li>
+                <li class="imgLi swiper-slide"><a href="goodsinfo.html"><img class="mask_img" src="../img/horse.png"></a></li>
+            </div>
+            <!-- <div class="swiper-pagination"></div> -->
+        </ul>
+    </div>
+    <div class="banner3"></div>
+</section>
+<!-- goods -->
+<div class="goods">
+    <div class="buyTop">
+        <div class="goods1"><a href="goodsinfo.html?id=tuya" ><img class="buy_img" src="../img/buy1.jpg"></a></div>
+        <div class="goods1"><a href="goodsinfo.html?id=duan"><img class="buy_img" src="../img/buy2.jpg"></a></div>
+    </div>
+    <div class="goods2"><a href="goodsinfo.html?id=red"><img class="buy_img" src="../img/buy3.jpg"></a></div>
+</div>
+<div class="goods">
+    <div class="buyTop">
+        <div class="goods1"><a href="goodsinfo.html?id=bao"><img class="buy_img" src="../img/buy4.jpg"></a></div>
+        <div class="goods1"><a href="goodsinfo.html?id=yellow"><img class="buy_img" src="../img/buy5.jpg"></a></div>
+    </div>
+    <div class="goods2"><a href="goodsinfo.html?id=bee"><img class="buy_img" src="../img/buy6.jpg"></a></div>
+</div>
+<!-- footer -->
+<div id="footer"></div>
+</body>
+</html>
+<script src="../js/iconfont.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/swiper.min.js"></script>
+<script src="../js/cookieTools.js"></script>
+<script src="../js/all.js"></script>
+<script>
+$("#footer").load("footer.html");
+$("#header").load("header.html");
+var swiper = new Swiper('.swiper-container', {
+    slidesPerView: 4,
+    slidesPerGroup: 4,
+    loop: true,
+    loopFillGroupWithBlank: true,
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+});
+$(".mask_img").mouseover(function(){
+    // let that=$(this);
+    // that.fadeOut("slow",function(){
+        let attr=$(this).attr("src");
+        let src=attr.substring(7);
+        let arr=[];
+        arr=src.split(".");
+        let src2=arr[0];
+        // that.animate({"src":"../img/"+src2+"_mask.png"},1000)
+        $(this).attr("src","../img/"+src2+"_mask.png");
+    // })
+})
+$(".mask_img").mouseout(function(){
+    // let that=$(this);
+    // that.fadeOut("slow",function(){
+        let attr=$(this).attr("src");
+        let src=attr.substring(7);
+        let arr=[];
+        arr=src.split(".");
+        let src2=arr[0];
+        let arr2=[];
+        arr2=src2.split("_");
+        let src3=arr2[0];
+        $(this).attr("src","../img/"+src3+".png");
+    // })
+})
+$(".buy_img").mouseover(function(){
+    let attr=$(this).attr("src");
+    let src=attr.substring(7);
+    let arr=[];
+    arr=src.split(".");
+    let src2=arr[0];
+    $(this).attr("src","../img/"+src2+"_mask.jpg");
+})
+$(".buy_img").mouseout(function(){
+    let attr=$(this).attr("src");
+    let src=attr.substring(7);
+    let arr=[];
+    arr=src.split(".");
+    let src2=arr[0];
+    let arr2=[];
+    arr2=src2.split("_");
+    let src3=arr2[0];
+    $(this).attr("src","../img/"+src3+".jpg");
+})
+window.onload=function(){
+//banner1部分
+    $(".font1").animate({
+        left:0,
+        top:"100px"
+    },500)
+    $(".font2").animate({
+        left:"440px",
+        top:"300px"
+    },1000)
+    $(".font3").animate({
+        left:"169px",
+        top:"437px"
+    },1500)
+    $(".font4").animate({
+        left:"406px",
+        top:"537px"
+    },2000)
+}
+</script>

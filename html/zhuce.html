@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>zhuce</title>
+</head>
+    <link rel="stylesheet" href="../css/iconfont.css">
+    <link rel="stylesheet" href="../css/demo.css">
+    <link rel="stylesheet" href="../css/zhuce.css">
+    <link rel="stylesheet" href="../css/all.css">
+    <!-- <link rel="stylesheet" href="../css/bootstrap.min.css"> -->
+    <style>
+    @font-face {
+      font-family: 'iconfont';
+      src: url('iconfont.eot');
+      src: url('iconfont.eot?#iefix') format('embedded-opentype'),
+          url('iconfont.woff2') format('woff2'),
+          url('iconfont.woff') format('woff'),
+          url('iconfont.ttf') format('truetype'),
+          url('iconfont.svg#iconfont') format('svg');
+    }
+    .iconfont {
+      font-family: "iconfont" !important;
+      font-size: 16px;
+      font-style: normal;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+</style>
+<body>
+<!-- header -->
+<div id="header"></div>
+<!-- section -->
+<section>
+    <div class="box">
+        <div class="box_top">
+            <a href="">用户名注册</a>
+        </div>
+        <!-- <form id="formId" action="../php/zhuce.php" method="POST"> -->
+            <input type="text" id="txtId" placeholder="请输入11位手机号"><br>
+            <span id="txtSpan"></span>
+            <input type="password" id="passwordId" placeholder="8-20个数字字母下划线"><br>
+            <span id="passwordSpan"></span>
+            <input type="password" class="passwordId" placeholder="再次填写密码"><br>
+            <span id="passwordSpan2"></span>
+            <input type="text" id="testId">
+            <span id="testSpan"></span>
+            <input type="button" id="makeId" value="获取短信验证码"><br>
+            <input type="submit" value="立即注册" id="loginBtn"><br><br><br><br>
+            <input type="checkbox" id="checkId"/>&nbsp;&nbsp;<span>我已阅读并同意VANS的&nbsp;&nbsp;<a href="">隐私政策</a>&nbsp;&nbsp;和&nbsp;&nbsp;<a href="">使用条款</a>。</span>
+            <span id="checkSpan">第三方第三方的</span>            
+        <!-- </form> -->
+    </div>
+</section>
+<!-- footer -->
+<div id="footer"></div>
+</body>
+</html>
+<script src="../js/iconfont.js"></script>
+<script src="../js/cookieTools.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/all.js"></script>
+<script>
+    $("#footer").load("footer.html");
+    $("#header").load("header.html");
+//正则判断
+  $("#txtId").blur(function(){
+    let reg = /^1[0-9]{10}$/;
+    if(reg.test(this.value)){
+      $("#txtSpan").html("合适");
+    }else{
+      $("#txtSpan").html("格式不正确");
+      return false;
+    }
+    $("#txtSpan").css({
+      "display":"block",
+    })
+  })
+  $("#passwordId").blur(function(){
+    let reg = /^\w{8,20}$/;
+    if(reg.test(this.value)){
+      $("#passwordSpan").html("合适");
+    }else{
+      $("#passwordSpan").html("格式不正确");
+      return false;
+    }
+    $("#passwordSpan").css({
+      "display":"block",
+    })
+  })
+  $(".passwordId").blur(function(){
+    if($(".passwordId").val() === $("#passwordId").val()){
+      $("#passwordSpan2").html("合适");
+    }else{
+      $("#passwordSpan2").html("密码错误");
+      return false;
+
+    }
+    $("#passwordSpan2").css({
+      "display":"block",
+    })
+  })
+//点击注册后判断
+$("#loginBtn").click(function(){
+    if($("#txtId").val().length===0){
+      $("#txtSpan").html("手机号不能为空");
+      $("#txtSpan").css({
+        "display":"block",
+      })
+      return false;
+    }else if($("#txtId").val().length!==0){
+      $("#txtSpan").css({
+        "display":"none",
+      })
+    } 
+    if($("#passwordId").val().length===0){
+      $("#passwordSpan").html("密码不能为空");
+      $("#passwordSpan").css({
+        "display":"block",
+      })
+      return false;
+    }else if($("#passwordId").val().length!==0){
+      $("#passwordSpan").css({
+        "display":"none",
+      })
+    }
+    if($(".passwordId").val().length===0){
+      $("#passwordSpan2").html("重复密码不能为空");
+      $("#passwordSpan2").css({
+        "display":"block",
+      })
+      return false;
+    }else if($(".passwordId").val().length!==0){
+      $("#passwordSpan2").css({
+        "display":"none",
+      })
+    }
+    if($("#testId").val().length===0){
+      $("#testSpan").html("验证码不能为空");
+      $("#testSpan").css({
+        "display":"block",
+      })
+      return false;
+    }else if($("#testId").val().length!==0){
+      $("#testSpan").css({
+        "display":"none",
+      })
+    }
+    if($("#checkId").is(":checked")==false){
+      $("#checkSpan").html("请勾选上面这个框");
+      $("#checkSpan").css({
+        "display":"block",
+      })
+      return false;
+    }else if($("#checkId").is(":checked")==true){
+      $("#checkSpan").css({
+        "display":"none",
+      })
+      $.post("../php/zhuce.php",{userId:$("#txtId").val(),userPass:$("#passwordId").val()},function(data){
+        if(data==1){
+          alert("注册成功，跳转至登录页面");
+          location.href="login.html";
+        }else if(data==2){
+          alert("手机号已被使用，请从新输入");
+        }else if(data==0){
+          alert("注册不知道为啥失败了");
+        }
+      })
+    }
+});
+</script>
